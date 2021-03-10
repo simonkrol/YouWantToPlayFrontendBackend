@@ -1,27 +1,27 @@
-import model.Product;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+package model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-class ProductTest {
+public class ProductTest {
 
     private Product product;
-    @BeforeEach
-    void setUp()
+    @Before
+    public void setUp()
     {
         product = new Product("This is the description", 20, null);
     }
 
-    @AfterEach
-    void tearDown()
+    @After
+    public void tearDown()
     {
         product = null;
     }
 
     @Test
-    void testDescription(){
+    public void testDescription(){
         assertNotNull(product.getDescription());
         assertEquals("This is the description", product.getDescription());
 
@@ -32,7 +32,7 @@ class ProductTest {
     }
 
     @Test
-    void testInventory(){
+    public void testInventory(){
         assertNotNull(product.getInventory());
         assertEquals(20,product.getInventory());
 
@@ -43,7 +43,7 @@ class ProductTest {
     }
 
     @Test
-    void testImage(){
+    public void testImage(){
         assertNull(product.getImage());
     }
 }

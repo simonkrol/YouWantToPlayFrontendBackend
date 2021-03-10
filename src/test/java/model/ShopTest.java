@@ -1,19 +1,19 @@
-import model.Product;
-import model.Shop;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+package model;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class ShopTest {
     private List<String> categories;
     private List<Product> products;
     private Shop shop1;
-    @BeforeEach
-    void setUp()
+    @Before
+    public void setUp()
     {
         categories = new ArrayList<String>();
         products = new ArrayList<Product>();
@@ -47,8 +47,8 @@ public class ShopTest {
         assertEquals(shop1.getProducts().get(1).getInventory(), 1 );
     }
 
-    @AfterEach
-    void tearDown()
+    @After
+    public void tearDown()
     {
         products = null;
         categories = null;
