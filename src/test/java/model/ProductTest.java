@@ -11,7 +11,7 @@ public class ProductTest {
     @Before
     public void setUp()
     {
-        product = new Product("This is the description", 20, null);
+        product = new Product("This is the description", 20, "testPhoto".getBytes());
     }
 
     @After
@@ -44,6 +44,6 @@ public class ProductTest {
 
     @Test
     public void testImage(){
-        assertNull(product.getImage());
+        assertArrayEquals("testPhoto".getBytes(), product.getImage());
     }
 }

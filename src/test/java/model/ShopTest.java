@@ -17,8 +17,8 @@ public class ShopTest {
     {
         categories = new ArrayList<String>();
         products = new ArrayList<Product>();
-        Product product1 = new Product("First product", 1, null);
-        Product product2 = new Product("Second product", 1, null);
+        Product product1 = new Product("First product", 1, "testPhoto".getBytes());
+        Product product2 = new Product("Second product", 1, "testPhoto".getBytes());
         products.add(product1);
         products.add(product2);
         categories.add("Air");
