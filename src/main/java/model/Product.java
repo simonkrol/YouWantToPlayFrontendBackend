@@ -13,4 +13,24 @@ public class Product {
         this.inventory = inventory;
         this.image = image;
     }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
+    public int getInventory()
+    {
+        return inventory;
+    }
+
+    public void setInventory(int inventory)
+    {
+        this.inventory = inventory;
+    }
 }
