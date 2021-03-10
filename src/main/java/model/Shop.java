@@ -18,6 +18,11 @@ public class Shop {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Product> products;
 
+    public Shop()
+    {
+
+    }
+    
     public Shop(String name, List<String> categories, List<Product> products)
     {
         this.name = name;

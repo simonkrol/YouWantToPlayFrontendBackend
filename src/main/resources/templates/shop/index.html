@@ -8,12 +8,14 @@
 <body>
 <h1>Shops</h1>
 <ul>
-    <li th:each="book : ${shops}">
-        <a th:text="'Shop ' + ${shop.getId()}" th:href="'/shops/'+ ${shop.getId()}"></a>
+    <li th:each="shop : ${shops}">
+        <a th:text="${shop.getName()}" th:href="'/shops/'+ ${shop.getId()}"></a>
     </li>
 </ul>
-<form action="#" th:action="@{/shops}" method="post">
+<form action="#" th:action="@{/shops}" th:object="${shop}" method="post">
+    <label>Name</label><input type="text" th:field="*{name}" /><br/>
     <input type="submit" value="Create new shop"/>
 </form>
+
 </body>
 </html>

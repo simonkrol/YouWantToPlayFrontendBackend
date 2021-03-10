@@ -15,6 +15,11 @@ public class Product {
     @Lob
     private byte[] image;
 
+    public Product()
+    {
+
+    }
+
     public Product(String description, int inventory, byte[] image)
     {
         this.description = description;

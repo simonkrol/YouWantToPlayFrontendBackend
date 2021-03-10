@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-    <title>AddressBook</title>
+    <title>Shop</title>
 </head>
 <body>
-<a href="/shops">Back to AddressBook Index</a>
 
-<h1 th:text="'Shop ' + ${shop.getId()}"></h1>
+<h1 th:text="${shop.getName()}"></h1>
 <ul>
     <li th:each="product : ${shop.products}" th:text="${buddy.getDescription()}" ></li>
 </ul>
-<form action="#" th:action="@{/shops/{id}/addProduct(id=${shop.id})}" th:object="${product}" method="post">
-    <label>Name</label><input type="text" th:field="*{decription}" /><br/>
-    <label>Phone</label><input type="number" th:field="*{inventory}" /><br/>
-    <input type="submit" value="Add new product"/>
-    <input type="reset" value="Clear form"/>
-</form>
 </body>
 </html>
