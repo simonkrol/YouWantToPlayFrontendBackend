@@ -1,8 +1,8 @@
 import model.Product;
 import model.Shop;
-import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -11,8 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ShopTest {
     private List<String> categories;
     private List<Product> products;
-    @Test
-    public void testInstantiation()
+    private Shop shop1;
+    @BeforeEach
+    void setUp()
     {
         categories = new ArrayList<String>();
         products = new ArrayList<Product>();
@@ -22,11 +23,24 @@ public class ShopTest {
         products.add(product2);
         categories.add("Air");
         categories.add("Water");
-        Shop shop1 = new Shop("Shaun", categories, products);
-
+        shop1 = new Shop("Shaun", categories, products);
+    }
+    @Test
+    public void testInstantiation()
+    {
         assertNotNull(shop1);
+    }
+
+    @Test
+    public void testShopCategories()
+    {
         assertEquals(shop1.getCategories().get(0), "Air" );
         assertEquals(shop1.getCategories().get(1), "Water" );
+    }
+
+    @Test
+    public void testShopProducts()
+    {
         assertEquals(shop1.getProducts().get(0).getDescription(), "First product" );
         assertEquals(shop1.getProducts().get(1).getDescription(), "Second product" );
         assertEquals(shop1.getProducts().get(0).getInventory(), 1 );
@@ -34,8 +48,10 @@ public class ShopTest {
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown()
+    {
         products = null;
         categories = null;
+        shop1 = null;
     }
 }

@@ -33,4 +33,14 @@ public class Product {
     {
         this.inventory = inventory;
     }
+
+    public BufferedImage getImage()
+    {
+        return image;
+    }
+
+    public void setImage(BufferedImage image)
+    {
+        this.image = image;
+    }
 }
