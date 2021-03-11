@@ -18,10 +18,7 @@ public class Shop {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Product> products;
 
-    public Shop()
-    {
-
-    }
+    public Shop() { }
     
     public Shop(String name, List<String> categories, List<Product> products)
     {
@@ -30,11 +27,13 @@ public class Shop {
         this.products = products;
     }
 
-    public Long getId() {
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 

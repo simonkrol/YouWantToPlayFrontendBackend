@@ -15,10 +15,7 @@ public class Product {
     @Lob
     private byte[] image;
 
-    public Product()
-    {
-
-    }
+    public Product() { }
 
     public Product(String description, int inventory, byte[] image)
     {
@@ -27,11 +24,13 @@ public class Product {
         this.image = image;
     }
 
-    public Long getId() {
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
