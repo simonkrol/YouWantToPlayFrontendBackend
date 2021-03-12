@@ -13,8 +13,9 @@
 This system is a Java/Spring based application for merchants to create and deploy new virtual shops that provide customers the ability to purchase products online. All purchases are simulated.
 
 ### Integration:
-- Hosted through Github, Travis CI for continuous integration building and testing.
-- Succesful builds are uploaded to Heroku server.
+- Version Control: [Github](https://github.com/simonkrol/YouWantToPlayFrontendBackend)
+- Testing and Continuous Integration/Deployment: [TravisCI](https://travis-ci.com/github/simonkrol/YouWantToPlayFrontendBackend)
+- Hosting: [Heroku](https://want-to-play-frontend-backend.herokuapp.com/)
 
 ### Release Descriptions:
 ##### Current Release: Milestone 1
@@ -35,3 +36,4 @@ This system is a Java/Spring based application for merchants to create and deplo
 - [ ] Shops can be searched by categories or name
 - [ ] Products with stock remaining can be added to a shopping cart
 - [ ] Items in the shopping cart can be purchased
+- [ ] Additional UI changes
