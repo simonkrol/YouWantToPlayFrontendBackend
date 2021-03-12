@@ -17,6 +17,21 @@ This system is a Java/Spring based application for merchants to create and deplo
 - Succesful builds are uploaded to Heroku server.
 
 ### Release Descriptions:
-##### Current Release: Prototype
-- Initial schema for the backend can be found in schema.png
-- Current functionality suports creation of shops under a specific name. Addition of product inventory and categories to shops will be implemented in the future.
+##### Current Release: Milestone 1
+- [x] Initial schema for the backend can be found in schema.png
+- [x] Support for Shop creation with specific name
+- [x] Unit tests for models
+
+
+##### Upcoming Release: Milestone 2
+- [ ] Support for product creation (description/quantity)
+- [ ] Shops will own products, displayed on shop view
+- [ ] Shops can have categories linked upon creation
+- [ ] Control flow integration tests
+
+
+##### Upcoming Release: Milestone 3
+- [ ] Products will support images
+- [ ] Shops can be searched by categories or name
+- [ ] Products with stock remaining can be added to a shopping cart
+- [ ] Items in the shopping cart can be purchased
