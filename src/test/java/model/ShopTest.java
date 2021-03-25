@@ -15,15 +15,16 @@ public class ShopTest {
     @Before
     public void setUp()
     {
+        shop1 = new Shop("Shaun", categories, products);
         categories = new ArrayList<String>();
         products = new ArrayList<Product>();
-        Product product1 = new Product("First product", 1, "testPhoto".getBytes());
-        Product product2 = new Product("Second product", 1, "testPhoto".getBytes());
+        Product product1 = new Product("First product", 1, "testPhoto".getBytes(), shop1.getId());
+        Product product2 = new Product("Second product", 1, "testPhoto".getBytes(), shop1.getId());
         products.add(product1);
         products.add(product2);
         categories.add("Air");
         categories.add("Water");
-        shop1 = new Shop("Shaun", categories, products);
+
     }
     @Test
     public void testInstantiation()

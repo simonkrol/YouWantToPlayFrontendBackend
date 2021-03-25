@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ShopController {
     @Autowired
     private ShopRepository repository;
+    @Autowired
+    private ProductRepository Prepository;
 
 
 
@@ -38,5 +40,16 @@ public class ShopController {
         repository.save(shop);
 
         return "redirect:/shops/" + shop.getId();
+    }
+
+    @PostMapping("shops/{id}/newProd")
+    public String createShop(@RequestParam(value = "description") String desc, @PathVariable("id") long id) {
+        Shop shop = repository.findById(id);
+        Product prod = new Product();
+        shop.addProduct(prod);
+        prod.setDescription(desc);
+        Prepository.save(prod);
+
+        return "redirect:/" ;
     }
 }

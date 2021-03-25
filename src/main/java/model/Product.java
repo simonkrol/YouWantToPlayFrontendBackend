@@ -11,14 +11,17 @@ public class Product {
 
     private String description;
     private int inventory;
+    private Long shopID;
+    private String Name;
 
     @Lob
     private byte[] image;
 
     public Product() { }
 
-    public Product(String description, int inventory, byte[] image)
+    public Product(String description, int inventory, byte[] image, Long shopID)
     {
+        this.shopID = shopID;
         this.description = description;
         this.inventory = inventory;
         this.image = image;
@@ -62,5 +65,10 @@ public class Product {
     public void setImage(byte[] image)
     {
         this.image = image;
+    }
+
+    public Long getShopId()
+    {
+        return shopID;
     }
 }

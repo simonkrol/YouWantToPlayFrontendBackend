@@ -11,7 +11,7 @@ public class ProductTest {
     @Before
     public void setUp()
     {
-        product = new Product("This is the description", 20, "testPhoto".getBytes());
+        product = new Product("This is the description", 20, "testPhoto".getBytes(), 12L);
     }
 
     @After
