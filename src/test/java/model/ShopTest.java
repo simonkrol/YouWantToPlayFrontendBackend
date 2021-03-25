@@ -9,21 +9,20 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 public class ShopTest {
-    private List<String> categories;
+    private Category cat1, cat2;
     private List<Product> products;
     private Shop shop1;
     @Before
     public void setUp()
     {
-        categories = new ArrayList<String>();
-        products = new ArrayList<Product>();
+        cat1 = new Category("Water");
+        cat2 = new Category("Fire");
+        products = new ArrayList<>();
         Product product1 = new Product("First product", 1, "testPhoto".getBytes());
         Product product2 = new Product("Second product", 1, "testPhoto".getBytes());
         products.add(product1);
         products.add(product2);
-        categories.add("Air");
-        categories.add("Water");
-        shop1 = new Shop("Shaun", categories, products);
+        shop1 = new Shop("Shaun", products);
     }
     @Test
     public void testInstantiation()
@@ -34,8 +33,10 @@ public class ShopTest {
     @Test
     public void testShopCategories()
     {
-        assertEquals(shop1.getCategories().get(0), "Air" );
-        assertEquals(shop1.getCategories().get(1), "Water" );
+        shop1.addCategory(cat1);
+        assertTrue(shop1.getCategories().contains(cat1));
+        assertFalse(shop1.getCategories().contains(cat2));
+        assertTrue(cat1.getLinkedShops().contains(shop1));
     }
 
     @Test
@@ -51,7 +52,8 @@ public class ShopTest {
     public void tearDown()
     {
         products = null;
-        categories = null;
         shop1 = null;
+        cat1 = null;
+        cat2 = null;
     }
 }

@@ -14,6 +14,10 @@ public class Category {
     private String name;
 
     @ManyToMany
+    @JoinTable(
+            name = "shop_categories",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "shop_id"))
     private final Set<Shop> linkedShops;
 
     public Category() {
