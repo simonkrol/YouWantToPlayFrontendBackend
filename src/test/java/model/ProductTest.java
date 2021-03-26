@@ -12,7 +12,7 @@ public class ProductTest {
     @BeforeEach
     public void setUp()
     {
-        product = new Product("This is the description", 20, "testPhoto".getBytes());
+        product = new Product("Name","This is the description", 20, "testPhoto".getBytes(), 12L);
     }
 
     @AfterEach
