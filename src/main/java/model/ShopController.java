@@ -19,8 +19,6 @@ public class ShopController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-
-
     @GetMapping(value={"/", "/shops"})
     public String shopForm(Model model) {
         model.addAttribute("shops", repository.findAll());
@@ -53,13 +51,11 @@ public class ShopController {
     }
 
     @PostMapping("shops/{id}/newProd")
-    public String createShop(@RequestParam(value = "description") String desc, @PathVariable("id") long id) {
+    public String createProduct(@RequestParam(value = "description") String desc, @RequestParam(value = "name") String name,
+                                @RequestParam(value = "inventory") int inv, @PathVariable("id") long id) {
         Shop shop = repository.findById(id);
-        Product prod = new Product();
+        Product prod = new Product(name, desc, inv, null, shop.getId());
         shop.addProduct(prod);
-        prod.setDescription(desc);
-        prod.setId(shop.getId());
-        prod.setName("ProductName");
         repository.save(shop);
         Prepository.save(prod);
 

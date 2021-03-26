@@ -13,7 +13,6 @@ public class Product {
     private int inventory;
     private Long shopID;
 
-
     private String name;
 
     @Lob

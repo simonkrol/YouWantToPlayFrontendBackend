@@ -8,7 +8,9 @@
 <h1 th:text="${shop.getName()}"></h1>
 
 <form action="#" th:action="@{/shops/{id}/newProd(id = ${shop.getId()})}" th:object="${product}" method="post">
-    <label>Name</label><input type="text" th:field="*{description}"/><br/>
+    <label>Name</label><input type="text" th:field="*{name}"/><br/>
+    <label>Description</label><input type="text" th:field="*{description}"/><br/>
+    <label>Inventory</label><input type="number" th:field="*{inventory}"/><br/>
     <input type="submit" value="Create new product"/>
 </form>
 
