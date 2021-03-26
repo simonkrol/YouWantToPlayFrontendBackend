@@ -16,7 +16,7 @@ public class ProductController {
     private ProductRepository Prepository;
 
     @GetMapping("/shops/{id}/products/{pid}")
-    public String createShop(@PathVariable("id") long id, @PathVariable("pid") long pid, Model model) {
+    public String showProduct(@PathVariable("id") long id, @PathVariable("pid") long pid, Model model) {
         Shop shop = repository.findById(id);
         Product prod = Prepository.findById(pid);
         model.addAttribute("product", prod);
@@ -25,16 +25,4 @@ public class ProductController {
 
         return "shop/product";
     }
-
-    @PostMapping("shops/{id}/products/{id}}")
-    public String createShop(@RequestParam(value = "description") String desc, @PathVariable("id") long id, @PathVariable(value = "id") long pid) {
-        Shop shop = repository.findById(id);
-        Product prod = Prepository.findById(pid);
-        repository.save(shop);
-        Prepository.save(prod);
-
-        return "redirect:/shops/" + shop.getId();
-    }
-
-
 }
