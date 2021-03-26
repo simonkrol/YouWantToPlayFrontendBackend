@@ -1,8 +1,8 @@
 package model;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,7 @@ public class CategoryTest {
     private Category cat;
     private Shop shop;
     private final String CAT_NAME = "TEST_STRING";
-    @Before
+    @BeforeEach
     public void setUp()
     {
         cat = new Category(CAT_NAME);
@@ -45,7 +45,7 @@ public class CategoryTest {
         assertEquals(0, cat.getLinkedShops().size());
     }
 
-    @After
+    @AfterEach
     public void tearDown()
     {
         cat = null;

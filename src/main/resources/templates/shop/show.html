@@ -6,8 +6,13 @@
 <body>
 
 <h1 th:text="${shop.getName()}"></h1>
+<h2 Product List></h2>
 <ul>
-    <li th:each="product : ${shop.products}" th:text="${buddy.getDescription()}" ></li>
+    <li th:each="product : ${shop.products}" th:text="${product.getDescription()}" ></li>
+</ul>
+<h2 Category List></h2>
+<ul>
+    <li th:each="category : ${shop.categories}" th:text="${category.getName()}"></li>
 </ul>
 </body>
 </html>

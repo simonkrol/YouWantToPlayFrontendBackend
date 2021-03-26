@@ -1,8 +1,8 @@
 package model;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -12,7 +12,7 @@ public class ShopTest {
     private Category cat1, cat2;
     private List<Product> products;
     private Shop shop1;
-    @Before
+    @BeforeEach
     public void setUp()
     {
         cat1 = new Category("Water");
@@ -48,7 +48,7 @@ public class ShopTest {
         assertEquals(shop1.getProducts().get(1).getInventory(), 1 );
     }
 
-    @After
+    @AfterEach
     public void tearDown()
     {
         products = null;
