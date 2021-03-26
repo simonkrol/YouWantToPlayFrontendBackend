@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ShopController {
@@ -38,11 +40,11 @@ public class ShopController {
 
     @PostMapping("/shops")
     public String createShop(@RequestParam(value = "name") String name,
-                            @RequestParam(value = "id") List<String> categories){
+                            @RequestParam(value = "id") Optional<List<String>> categories){
         Shop shop = new Shop();
         shop.setName(name);
 
-        for (String s: categories)
+        for (String s: categories.orElse(new ArrayList<String>()))
         {
             shop.addCategory(categoryRepository.findById(Long.parseLong(s)));
         }
