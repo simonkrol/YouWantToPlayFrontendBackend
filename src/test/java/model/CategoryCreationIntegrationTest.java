@@ -5,7 +5,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +40,7 @@ public class CategoryCreationIntegrationTest
     @Test
     public void indexShouldReturnAddressBooks() throws Exception
     {
-        this.mockMvc.perform(get("/shops")).andDo(print()).andExpect(status().isOk())
+        this.mockMvc.perform(get("/shops")).andExpect(status().isOk())
                 .andReturn().toString().contains("Travel");
     }
 }
