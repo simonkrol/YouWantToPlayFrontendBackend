@@ -48,8 +48,11 @@ public class ShopController {
         Product prod = new Product();
         shop.addProduct(prod);
         prod.setDescription(desc);
+        prod.setId(shop.getId());
+        prod.setName("ProductName");
+        repository.save(shop);
         Prepository.save(prod);
 
-        return "redirect:/" ;
+        return "redirect:/shops/" + shop.getId();
     }
 }
