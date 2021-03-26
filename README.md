@@ -25,10 +25,10 @@ This system is a Java/Spring based application for merchants to create and deplo
 
 
 ##### Upcoming Release: Milestone 2
-- [ ] Support for product creation (description/quantity)
-- [ ] Shops will own products, displayed on shop view
-- [ ] Shops can have categories linked upon creation
-- [ ] Control flow integration tests
+- [x] Support for product creation (description/quantity)
+- [x] Shops will own products, displayed on shop view
+- [x] Shops can have categories linked upon creation
+- [x] Control flow integration tests
 
 
 ##### Upcoming Release: Milestone 3
