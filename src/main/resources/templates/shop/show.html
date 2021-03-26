@@ -12,12 +12,16 @@
     <input type="submit" value="Create new product"/>
 </form>
 
-<h2 th:text="Products"></h2>
-
+<h2>Product List</h2>
 <ul>
     <li th:each="product : ${shop.products}" >
         <a th:text="${product.getName()}"  th:href="'/shops/'+ ${shop.getId()} + '/products/' + ${product.getId()}"></a>
     </li>
+</ul>
+
+<h2>Category List</h2>
+<ul>
+    <li th:each="category : ${shop.categories}" th:text="${category.getName()}"></li>
 </ul>
 
 

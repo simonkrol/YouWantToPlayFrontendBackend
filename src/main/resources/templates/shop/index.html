@@ -14,6 +14,12 @@
 </ul>
 <form action="#" th:action="@{/shops}" th:object="${shop}" method="post">
     <label>Name</label><input type="text" th:field="*{name}" /><br/>
+    <h2>Select Tags</h2>
+    <select th:field="*{id}" class="form-control" id="categories" name="categories" multiple="multiple">
+        <option th:each="category : ${categories}"
+                th:value="${category.getId()}"
+                th:text="${category.getName()}"></option>
+    </select>
     <input type="submit" value="Create new shop"/>
 </form>
 
