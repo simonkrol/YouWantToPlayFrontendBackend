@@ -8,17 +8,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class ShopController {
     @Autowired
     private ShopRepository repository;
-
+    @Autowired
+    private CategoryRepository categoryRepository;
 
 
     @GetMapping(value={"/", "/shops"})
     public String shopForm(Model model) {
         model.addAttribute("shops", repository.findAll());
         model.addAttribute("shop", new Shop());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "shop/index";
     }
 
@@ -32,11 +36,16 @@ public class ShopController {
     }
 
     @PostMapping("/shops")
-    public String createShop(@RequestParam(value = "name") String name) {
+    public String createShop(@RequestParam(value = "name") String name,
+                            @RequestParam(value = "id") List<String> categories){
         Shop shop = new Shop();
         shop.setName(name);
-        repository.save(shop);
 
+        for (String s: categories)
+        {
+            shop.addCategory(categoryRepository.findById(Long.parseLong(s)));
+        }
+        repository.save(shop);
         return "redirect:/shops/" + shop.getId();
     }
 }

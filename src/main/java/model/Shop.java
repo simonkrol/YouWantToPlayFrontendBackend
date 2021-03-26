@@ -1,6 +1,8 @@
 package model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
@@ -12,18 +14,20 @@ public class Shop {
 
     private String name;
 
-    @ElementCollection(fetch=FetchType.LAZY)
-    private List<String> categories;
+    @ManyToMany(mappedBy = "linkedShops",  cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private final Set<Category> categories;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Product> products;
 
-    public Shop() { }
+    public Shop() {
+        this.categories = new HashSet<>();
+    }
     
-    public Shop(String name, List<String> categories, List<Product> products)
+    public Shop(String name, List<Product> products)
     {
+        this();
         this.name = name;
-        this.categories = categories;
         this.products = products;
     }
 
@@ -47,18 +51,21 @@ public class Shop {
         this.name = name;
     }
 
-    public List<String> getCategories()
+    public Set<Category> getCategories()
     {
         return categories;
     }
 
-    public void setCategories(List<String> categories)
+    public void addCategory(Category category)
     {
-        this.categories = categories;
+        categories.add(category);
+        category.addLinkedShop(this);
     }
+
     public List<Product> getProducts() {
         return products;
     }
+
     public void setProducts(List<Product> products) {
         this.products = products;
     }
