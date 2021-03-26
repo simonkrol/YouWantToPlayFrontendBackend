@@ -23,6 +23,7 @@ public class ShopTest {
         Product product2 = new Product("Name", "Second product", 1, "testPhoto".getBytes(), shop1.getId());
         products.add(product1);
         products.add(product2);
+        shop1.setProducts(products);
     }
     @Test
     public void testInstantiation()
