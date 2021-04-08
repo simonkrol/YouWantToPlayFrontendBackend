@@ -33,14 +33,29 @@ public class ShoppingCartController {
     @PostMapping("/shops/{id}/products/{pid}/addToCart")
     public String addProductToCart(@RequestParam(value = "amount") int amount, @PathVariable("id") long id,
                                    @PathVariable("pid") long pid) {
-        Product product = prodRepository.findById(pid);
-        ShoppingCart cart = cartRepository.findById(id);
-        if(product.getInventory() >= amount){
-            cart.add(product, amount);
-        }
-        cartRepository.save(cart);
+//        Product product = prodRepository.findById(pid);
+//        ShoppingCart cart = cartRepository.findById(id);
+//        if(product.getInventory() >= amount){
+//            cart.add(product, amount);
+//        }
+//        cartRepository.save(cart);
+//
+//        return "redirect:/cart/" + cart.getId();
+        System.out.print("\n\n\n\n\n");
+        System.out.print("Added to cart");
+        System.out.print("\n\n\n\n\n");
+        //cartRepository.save();
 
-        return "redirect:/cart/" + cart.getId();
+        return "redirect:/";
     }
 
+    @PostMapping("/addToCart")
+    public String addProductToCart(@RequestParam(value="amount") int amount) {
+        System.out.print("\n\n\n\n\n");
+        System.out.print("Added to cart");
+        System.out.print("\n\n\n\n\n");
+        //cartRepository.save();
+
+        return "redirect:/";
+    }
 }
