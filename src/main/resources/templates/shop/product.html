@@ -12,5 +12,16 @@
     <h5> Inventory </h5>
     <td th:text="${product.getInventory()}" >Inventory</td><Br>
 </tr>
+
+<form action="#" th:action="@{/shops/{id}/newProd(id = ${shop.getId()})}" th:object="${product}" method="post">
+    <input type="text" th:name="participant"/>
+    <input type="submit"/>
+</form>
+
+<!--<form action="#" th:action="@{/shops/' + ${shop.getId()} + '/products/' +${product.getId()} + '/addToCart}" th:object="${shop}" method="post">-->
+<!--    <label>Amount</label><input type="int" th:field="*{amount}" /><br/>-->
+<!--    <input type="submit" value="Add to cart"/>-->
+<!--</form>-->
+
 </body>
 </html>
