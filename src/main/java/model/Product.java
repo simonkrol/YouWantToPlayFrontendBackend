@@ -28,8 +28,9 @@ public class Product {
 
     public Product() { }
 
-    public Product(String name, String description, int inventory, byte[] image, Long shopID)
+    public Product(String name, String description, int inventory, byte[] image, Long shopID, String imageUrl)
     {
+        this.imageUrl = imageUrl;
         this.shopID = shopID;
         this.description = description;
         this.inventory = inventory;

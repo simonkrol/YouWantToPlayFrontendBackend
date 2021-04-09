@@ -12,8 +12,7 @@ public class ProductTest {
     @BeforeEach
     public void setUp()
     {
-        product = new Product("Name","This is the description", 20, "testPhoto".getBytes(), 12L);
-        product.setImageUrl("https://dpa730eaqha29.cloudfront.net/mltnews/wp-content/uploads/2011/03/Events-in-Seattle-Starbucks-Coffee-Company.jpg");
+        product = new Product("Name","This is the description", 20, "testPhoto".getBytes(), 12L, "https://dpa730eaqha29.cloudfront.net/mltnews/wp-content/uploads/2011/03/Events-in-Seattle-Starbucks-Coffee-Company.jpg");
     }
 
     @AfterEach

@@ -56,8 +56,7 @@ public class ShopController {
     public String createProduct(@RequestParam(value = "description") String desc, @RequestParam(value = "name") String name,
                                 @RequestParam(value = "inventory") int inv, @RequestParam(value = "imageUrl") String imageUrl, @PathVariable("id") long id) {
         Shop shop = repository.findById(id);
-        Product prod = new Product(name, desc, inv, null, shop.getId());
-        prod.setImageUrl(imageUrl);
+        Product prod = new Product(name, desc, inv, null, shop.getId(), imageUrl);
         shop.addProduct(prod);
         repository.save(shop);
         Prepository.save(prod);
