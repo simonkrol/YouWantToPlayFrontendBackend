@@ -25,14 +25,6 @@ public class ShopController {
     public String shopForm(Model model) {
         model.addAttribute("shops", repository.findAll());
         model.addAttribute("carts", cartRepository.findAll());
-        ArrayList<ShoppingCart> carts = cartRepository.findAll();
-        ShoppingCart cart = carts.get(0);
-        HashMap<String, Integer> cartItemName = new HashMap<String, Integer>();
-        for (Long key : cart.getCart().keySet())
-        {
-            cartItemName.put(Prepository.findById(key).orElse(new Product()).getName(), cart.getCart().get(key));
-        }
-        model.addAttribute("cartItemName", cartItemName);
         return "shop/index";
     }
 

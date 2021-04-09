@@ -18,17 +18,5 @@
 <a class="btn btn-primary" href="/shops/new"> New Shop </a>
 
 
-<h1>Shopping Cart</h1>
-<ul>
-    <li th:each="item : ${cartItemName}">
-        <a th:text="${item.key}"></a>
-        <a th:text="${item.value}"></a>
-    </li>
-
-</ul>
-<form action="#" th:action="@{/checkout}" method="post">
-    <input type="submit" value="Checkout"/>
-</form>
-
 </body>
 </html>

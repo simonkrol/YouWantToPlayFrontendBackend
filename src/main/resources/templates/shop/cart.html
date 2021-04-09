@@ -7,11 +7,17 @@
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body>
+<div th:replace="common/navbar :: common-navbar" />
 <h1>Shopping Cart</h1>
 <ul>
     <li th:each="item : ${shoppingCart}">
-        <a th:text="${item.getName()}"></a>
+        <a th:text="${item.key.getName()}"></a>
+        <a th:text="${item.value}"></a>
     </li>
+
 </ul>
+<form action="#" th:action="@{/checkout}" method="post">
+    <input type="submit" value="Checkout"/>
+</form>
 </body>
 </html>
