@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class SearchController {
@@ -22,6 +20,10 @@ public class SearchController {
 
     @PostMapping("/search")
     public String search(@RequestParam(value = "query") String query) {
+        if(query.length() == 0)
+        {
+            return "common/not_found";
+        }
         return "redirect:/search/" + query;
     }
 
