@@ -24,7 +24,9 @@
 
 <h2>Category List</h2>
 <ul>
-    <li th:each="category : ${shop.categories}" th:text="${category.getName()}"></li>
+    <li th:each="category : ${shop.categories}">
+        <a th:text="${category.getName()}" th:href="'/categories/'+ ${category.getId()}"></a>
+    </li>
 </ul>
 
 

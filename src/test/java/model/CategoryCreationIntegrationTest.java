@@ -43,4 +43,18 @@ public class CategoryCreationIntegrationTest
         this.mockMvc.perform(get("/shops")).andExpect(status().isOk())
                 .andReturn().toString().contains("Travel");
     }
+
+    @Test
+    public void categoryIndexShouldShowCategory() throws Exception
+    {
+        this.mockMvc.perform(get("/categories/1")).andExpect(status().isOk())
+                .andReturn().toString().contains("Travel");
+    }
+
+    @Test
+    public void categoryShowShouldShowCategory() throws Exception
+    {
+        this.mockMvc.perform(get("/categories/1")).andExpect(status().isOk())
+                .andReturn().toString().contains("Travel");
+    }
 }
