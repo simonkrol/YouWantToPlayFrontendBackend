@@ -23,18 +23,15 @@ public class Product {
 
     private String name;
 
-    @Lob
-    private byte[] image;
 
     public Product() { }
 
-    public Product(String name, String description, int inventory, byte[] image, Long shopID, String imageUrl)
+    public Product(String name, String description, int inventory, Long shopID, String imageUrl)
     {
         this.imageUrl = imageUrl;
         this.shopID = shopID;
         this.description = description;
         this.inventory = inventory;
-        this.image = image;
         this.name = name;
     }
 
@@ -66,16 +63,6 @@ public class Product {
     public void setInventory(int inventory)
     {
         this.inventory = inventory;
-    }
-
-    public byte[] getImage()
-    {
-        return image;
-    }
-
-    public void setImage(byte[] image)
-    {
-        this.image = image;
     }
 
     public long getShopId()

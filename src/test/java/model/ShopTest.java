@@ -19,8 +19,8 @@ public class ShopTest {
         cat1 = new Category("Water");
         cat2 = new Category("Fire");
         products = new ArrayList<>();
-        Product product1 = new Product("Name", "First product", 1, "testPhoto".getBytes(), shop1.getId(), "https://dpa730eaqha29.cloudfront.net/mltnews/wp-content/uploads/2011/03/Events-in-Seattle-Starbucks-Coffee-Company.jpg");
-        Product product2 = new Product("Name", "Second product", 1, "testPhoto".getBytes(), shop1.getId(),"https://dpa730eaqha29.cloudfront.net/mltnews/wp-content/uploads/2011/03/Events-in-Seattle-Starbucks-Coffee-Company.jpg");
+        Product product1 = new Product("Name", "First product", 1,  shop1.getId(), "https://dpa730eaqha29.cloudfront.net/mltnews/wp-content/uploads/2011/03/Events-in-Seattle-Starbucks-Coffee-Company.jpg");
+        Product product2 = new Product("Name", "Second product", 1, shop1.getId(),"https://dpa730eaqha29.cloudfront.net/mltnews/wp-content/uploads/2011/03/Events-in-Seattle-Starbucks-Coffee-Company.jpg");
         products.add(product1);
         products.add(product2);
         shop1.setProducts(products);
