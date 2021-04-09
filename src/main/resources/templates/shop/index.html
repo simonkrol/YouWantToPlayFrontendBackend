@@ -12,10 +12,12 @@
         <div th:each="item : ${cart.getCart()}">
             <span th:text="${item.key}"></span>
             <span th:text="${item.value}"></span>
-            <span th:text="${cart.getId()}"></span>
         </div>
     </div>
 </ul>
+<form action="#" th:action="@{/checkout}" method="post">
+    <input type="submit" value="Checkout"/>
+</form>
 
 <h1>Shops</h1>
 <ul>
