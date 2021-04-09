@@ -36,7 +36,7 @@ public class ProductIntegrationTest {
     {
 //        List<Product> prods = new ArrayList<Product>();
 //        shop = new Shop("Amazon", prods);
-//        product = new Product("Name","Description", 20, "testPhoto".getBytes(), shop.getId());
+//        product = new Product("Name","Description", 20, shop.getId(), "aaa");
 //        shop.addProduct(product);
 //        Prepository.save(product);
 //        repository.save(shop);

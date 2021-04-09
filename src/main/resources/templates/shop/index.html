@@ -26,12 +26,11 @@
 
 <h1>Shopping Cart</h1>
 <ul>
-    <div th:each="cart : ${carts}">
-        <div th:each="item : ${cart.getCart()}">
-            <span th:text="${item.key}"></span>
-            <span th:text="${item.value}"></span>
-        </div>
-    </div>
+    <li th:each="item : ${cartItemName}">
+        <a th:text="${item.key}"></a>
+        <a th:text="${item.value}"></a>
+    </li>
+
 </ul>
 <form action="#" th:action="@{/checkout}" method="post">
     <input type="submit" value="Checkout"/>
