@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.util.ArrayList;
 
 @Controller
 public class ShoppingCartController {
@@ -31,13 +32,14 @@ public class ShoppingCartController {
 //    }
 
     @PostMapping("/shops/{id}/products/{pid}/addToCart")
-    public String addProductToCart(@RequestParam(value = "amount") int amount,  @PathVariable("cid") long cid,
+    public String addProductToCart(@RequestParam(value = "amount") int amount,
                                    @PathVariable("id") long id,
                                    @PathVariable("pid") long pid){
         Product product = prodRepository.findById(pid);
-        ShoppingCart cart = cartRepository.findById(id);
-        if (product.getInventory() < amount || amount <1) {
 
+        ArrayList<ShoppingCart> carts = cartRepository.findAll();
+        ShoppingCart cart = carts.get(0);
+        if (product.getInventory() < amount || amount <1) {
             return "shop/shopError";
         }
         cart.add(product, amount);
@@ -48,11 +50,12 @@ public class ShoppingCartController {
         return "redirect:/";
     }
 
-    @GetMapping("/checkout{cid}")
-    public String checkout(@PathVariable("cid") long id){
-        ShoppingCart cart = cartRepository.findById(id);
+    @PostMapping("/checkout")
+    public String checkout(){
+        ArrayList<ShoppingCart> carts = cartRepository.findAll();
+        ShoppingCart cart = carts.get(0);
+        cart.getCart().clear();
+        cartRepository.save(cart);
         return "shop/checkout";
     }
-
-
 }

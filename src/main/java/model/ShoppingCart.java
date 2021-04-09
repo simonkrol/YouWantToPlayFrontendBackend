@@ -13,10 +13,8 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
+    @Lob
     private HashMap<Long, Integer> cart;
-
-    //public ShoppingCart(){  }
 
     public ShoppingCart(){
         this.cart = new HashMap<Long, Integer>();
