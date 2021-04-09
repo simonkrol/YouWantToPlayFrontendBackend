@@ -32,8 +32,8 @@ This system is a Java/Spring based application for merchants to create and deplo
 
 
 ##### Upcoming Release: Milestone 3
-- [ ] Products will support images
-- [ ] Shops can be searched by categories or name
-- [ ] Products with stock remaining can be added to a shopping cart
-- [ ] Items in the shopping cart can be purchased
-- [ ] Additional UI changes
+- [x] Products will support images
+- [x] Shops can be searched by categories or name
+- [x] Products with stock remaining can be added to a shopping cart
+- [x] Items in the shopping cart can be purchased
+- [x] Additional UI changes
