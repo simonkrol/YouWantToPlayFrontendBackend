@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="common-navbar" class="navbar navbar-inverse navbar-fixed-top">
+
+    <form th:action="@{/search}"  method="post">
+        <input type="query" th:value="${query}" name="query"/>
+        <input type="submit" value="Search for shop" />
+    </form>
+</div>

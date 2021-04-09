@@ -4,7 +4,7 @@
     <title>Shop</title>
 </head>
 <body>
-
+<div th:replace="common/navbar :: common-navbar" />
 <h1 th:text="${shop.getName()}"></h1>
 
 <form action="#" th:action="@{/shops/{id}/newProd(id = ${shop.getId()})}" th:object="${product}" method="post">
@@ -24,7 +24,9 @@
 
 <h2>Category List</h2>
 <ul>
-    <li th:each="category : ${shop.categories}" th:text="${category.getName()}"></li>
+    <li th:each="category : ${shop.categories}">
+        <a th:text="${category.getName()}" th:href="'/categories/'+ ${category.getId()}"></a>
+    </li>
 </ul>
 
 
