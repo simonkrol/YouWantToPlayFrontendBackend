@@ -22,7 +22,7 @@ public class ShoppingCartTest {
 
     @Test
     public void testAddToCart() {
-        Product p = new Product("Name","This is the description", 20, "testPhoto".getBytes(), 12L);
+        Product p = new Product("Name","This is the description", 20, 5L, "aaa");
         cart.add(p, 5);
         assertEquals((Object) cart.getCart().get(p.getId()), (Object) 5);
     }

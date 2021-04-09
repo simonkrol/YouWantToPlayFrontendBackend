@@ -18,7 +18,7 @@ public class Main
         SpringApplication.run(Main.class, args);
     }
     @Bean
-    public CommandLineRunner demo(CategoryRepository repository, ShoppingCartRepository cartRepo, ProductRepository prodRepo) {
+    public CommandLineRunner demo(CategoryRepository repository, ShoppingCartRepository cartRepo) {
         return (args) -> {
             // save a few customers
             ArrayList<String> tags = new ArrayList<String>(
