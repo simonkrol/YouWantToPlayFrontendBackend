@@ -20,12 +20,15 @@ public class ShopController {
     private ProductRepository Prepository;
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private ShoppingCartRepository cartRepository;
 
     @GetMapping(value={"/", "/shops"})
     public String shopForm(Model model) {
         model.addAttribute("shops", repository.findAll());
         model.addAttribute("shop", new Shop());
         model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("carts", cartRepository.findAll());
         return "shop/index";
     }
 

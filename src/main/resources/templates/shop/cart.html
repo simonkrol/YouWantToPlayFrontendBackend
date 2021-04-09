@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-
+<h1>Shopping Cart</h1>
+<ul>
+    <li th:each="item : ${shoppingCart}">
+        <a th:text="${item.getName()}"></a>
+    </li>
+</ul>
 </body>
 </html>

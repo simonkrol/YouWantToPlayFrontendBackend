@@ -18,7 +18,7 @@ public class Main
         SpringApplication.run(Main.class, args);
     }
     @Bean
-    public CommandLineRunner demo(CategoryRepository repository, ShoppingCartRepository cartRepo) {
+    public CommandLineRunner demo(CategoryRepository repository, ShoppingCartRepository cartRepo, ProductRepository prodRepo) {
         return (args) -> {
             // save a few customers
             ArrayList<String> tags = new ArrayList<String>(
@@ -31,10 +31,12 @@ public class Main
             ShoppingCart shoppingCart = new ShoppingCart();
 
             Product p = new Product("Name","This is the description", 20, "testPhoto".getBytes(), 12L);
+            prodRepo.save(p);
             shoppingCart.add(p, 5);
             cartRepo.save(shoppingCart);
             System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
             System.out.print(shoppingCart.getId());
+            System.out.print(p.getId());
             System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
         };
     }
