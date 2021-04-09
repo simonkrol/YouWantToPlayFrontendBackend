@@ -7,7 +7,7 @@
 <body>
 <div th:replace="common/navbar :: common-navbar" />
 <tr>
-    <img th:src="${product.getImageUrl()}"></a>
+    <img th:src="${product.getImageUrl()}" width="80" height="80"></a>
     <h5> Name </h5>
     <td th:text="${product.getName()}" >Name</td><Br>
     <h5> Description </h5>
