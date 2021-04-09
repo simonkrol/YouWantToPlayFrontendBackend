@@ -4,10 +4,12 @@
     <title>Shops</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="jq.js"></script>
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+    <link th:href="@{/css/application.css}" href="/css/application.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div th:replace="common/navbar :: common-navbar" />
+<main style="margin-left: 20px">
 <h1>Shops</h1>
 <ul>
     <li th:each="shop : ${shops}">
@@ -17,6 +19,6 @@
 
 <a class="btn btn-primary" href="/shops/new"> New Shop </a>
 
-
+</main>
 </body>
 </html>

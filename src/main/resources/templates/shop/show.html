@@ -6,6 +6,7 @@
 </head>
 <body>
 <div th:replace="common/navbar :: common-navbar" />
+<main style="margin-left: 20px">
 <h1 th:text="${shop.getName()}"></h1>
 
 <a class="btn btn-primary" th:href="'/shops/'+ ${shop.getId()} + '/products/new'">Create new Product</a>
@@ -25,6 +26,6 @@
     </li>
 </ul>
 
-
+</main>
 </body>
 </html>

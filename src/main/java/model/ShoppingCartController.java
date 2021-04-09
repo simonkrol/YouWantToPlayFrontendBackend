@@ -29,14 +29,14 @@ public class ShoppingCartController {
         ArrayList<ShoppingCart> carts = cartRepository.findAll();
         ShoppingCart cart = carts.get(0);
         if (product.getInventory() < amount || amount <1) {
-            return "shop/shopError";
+            return "redirect:/shops/"+id+"/products/"+pid +"/cartError";
         }
         cart.add(product, amount);
         cartRepository.save(cart);
         product.setInventory(product.getInventory()-amount);
         prodRepository.save(product);
 
-        return "redirect:/";
+        return "redirect:/shops/"+id;
     }
 
     @PostMapping("/checkout")
@@ -46,6 +46,13 @@ public class ShoppingCartController {
         cart.getCart().clear();
         cartRepository.save(cart);
         return "shop/checkout";
+    }
+
+    @GetMapping("shops/{id}/products/{pid}/cartError")
+    public String errorShop(@PathVariable("id") long id, @PathVariable("pid") long pid, Model model) {
+        model.addAttribute("shop", repository.findById(id));
+        model.addAttribute("product", prodRepository.findById(pid));
+        return "shop/shopError";
     }
 
     @GetMapping("/cart")

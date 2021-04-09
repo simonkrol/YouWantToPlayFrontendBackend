@@ -6,6 +6,7 @@
 </head>
 <body>
 <div th:replace="common/navbar :: common-navbar" />
+<main style="margin-left: 20px">
 <tr>
     <img th:src="${product.getImageUrl()}" width="80" height="80"></a>
     <h5> Name </h5>
@@ -18,9 +19,9 @@
 
 <form action="#" th:action="@{/shops/{id}/products/{pid}/addToCart(id = ${product.getShopId()}, pid = ${product.getId()})}" method="post">
     <input type="number" th:name="amount"/>
-    <input type="Submit" value="Add to Cart"/>
+    <input class="btn btn-success" type="Submit" value="Add to Cart"/>
 </form>
-
+</main>
 </body>
 </html>
 
