@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class ShopController {
@@ -20,12 +18,23 @@ public class ShopController {
     private ProductRepository Prepository;
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private ShoppingCartRepository cartRepository;
 
     @GetMapping(value={"/", "/shops"})
     public String shopForm(Model model) {
         model.addAttribute("shops", repository.findAll());
         model.addAttribute("shop", new Shop());
         model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("carts", cartRepository.findAll());
+        ArrayList<ShoppingCart> carts = cartRepository.findAll();
+        ShoppingCart cart = carts.get(0);
+        HashMap<String, Integer> cartItemName = new HashMap<String, Integer>();
+        for (Long key : cart.getCart().keySet())
+        {
+            cartItemName.put(Prepository.findById(key).orElse(new Product()).getName(), cart.getCart().get(key));
+        }
+        model.addAttribute("cartItemName", cartItemName);
         return "shop/index";
     }
 

@@ -6,6 +6,7 @@
     <script src="jq.js"></script>
 </head>
 <body>
+
 <h1>Shops</h1>
 <ul>
     <li th:each="shop : ${shops}">
@@ -21,6 +22,18 @@
                 th:text="${category.getName()}"></option>
     </select>
     <input type="submit" value="Create new shop"/>
+</form>
+
+<h1>Shopping Cart</h1>
+<ul>
+    <li th:each="item : ${cartItemName}">
+        <a th:text="${item.key}"></a>
+        <a th:text="${item.value}"></a>
+    </li>
+
+</ul>
+<form action="#" th:action="@{/checkout}" method="post">
+    <input type="submit" value="Checkout"/>
 </form>
 
 </body>
