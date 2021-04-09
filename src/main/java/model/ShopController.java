@@ -24,8 +24,6 @@ public class ShopController {
     @GetMapping(value={"/", "/shops"})
     public String shopForm(Model model) {
         model.addAttribute("shops", repository.findAll());
-        model.addAttribute("shop", new Shop());
-        model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("carts", cartRepository.findAll());
         ArrayList<ShoppingCart> carts = cartRepository.findAll();
         ShoppingCart cart = carts.get(0);
@@ -36,6 +34,13 @@ public class ShopController {
         }
         model.addAttribute("cartItemName", cartItemName);
         return "shop/index";
+    }
+
+    @GetMapping("shops/new")
+    public String newShop(Model model) {
+        model.addAttribute("shop", new Shop());
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "shop/new";
     }
 
     @GetMapping("shops/{id}")

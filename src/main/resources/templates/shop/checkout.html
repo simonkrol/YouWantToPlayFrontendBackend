@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body>
+<div th:replace="common/navbar :: common-navbar" />
 <h1>Checkout</h1>
 <h2>Your items have been purchased.</h2>
 </body>
