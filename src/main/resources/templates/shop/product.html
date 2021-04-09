@@ -8,13 +8,12 @@
 <tr>
     <img th:src="${product.getImageUrl()}"></a>
     <h5> Name </h5>
-    <td th:text="product" >Name</td><Br>
+    <td th:text="${product.getName()}" >Name</td><Br>
     <h5> Description </h5>
     <td th:text="${product.getDescription()}" >Description</td><Br>
     <h5> Inventory </h5>
     <td th:text="${product.getInventory()}" >Inventory</td><Br>
 </tr>
-
 </body>
 </html>
 
