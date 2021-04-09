@@ -2,11 +2,13 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
     <title>Product</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body>
 <div th:replace="common/navbar :: common-navbar" />
+<main style="margin-left: 20px">
 <tr>
-    <img th:src="${product.getImageUrl()}"></a>
+    <img th:src="${product.getImageUrl()}" width="80" height="80"></a>
     <h5> Name </h5>
     <td th:text="${product.getName()}" >Name</td><Br>
     <h5> Description </h5>
@@ -17,9 +19,9 @@
 
 <form action="#" th:action="@{/shops/{id}/products/{pid}/addToCart(id = ${product.getShopId()}, pid = ${product.getId()})}" method="post">
     <input type="number" th:name="amount"/>
-    <input type="Submit" value="Add to Cart"/>
+    <input class="btn btn-success" type="Submit" value="Add to Cart"/>
 </form>
-
+</main>
 </body>
 </html>
 

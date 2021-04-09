@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create new shop</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="jq.js"></script>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+<div th:replace="common/navbar :: common-navbar" />
+<main style="margin-left: 20px">
+<h1>Create new Shop</h1>
+<form action="#" th:action="@{/shops}" th:object="${shop}" method="post">
+    <div class="form-group">
+    <label>Name</label><input type="text" th:field="*{name}" /><br/>
+    </div>
+    <h2>Select Tags</h2>
+    <select th:field="*{id}" class="form-control" id="categories" name="categories" multiple="multiple">
+        <option th:each="category : ${categories}"
+                th:value="${category.getId()}"
+                th:text="${category.getName()}"></option>
+    </select>
+    <input class="btn btn-primary" type="submit" value="Create new shop"/>
+</form>
+</main>
+</body>
+</html>

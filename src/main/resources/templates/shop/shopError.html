@@ -1,13 +1,17 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body>
-<h1> Request invalid.</h1>
-    <form action="/">
-        <input type="submit" value="Ok"/>
-    </form>
+<div th:replace="common/navbar :: common-navbar" />
+<main style="margin-left: 20px">
+    <h1> Request invalid.</h1>
+    <a class="btn btn-warning" th:href="'/shops/'+ ${shop.getId()} + '/products/' + ${product.getId()}">Ok</a>
+
+</main>
 </body>
 </html>

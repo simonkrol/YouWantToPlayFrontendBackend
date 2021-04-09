@@ -2,18 +2,15 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
     <title>Shop</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body>
 <div th:replace="common/navbar :: common-navbar" />
+<main style="margin-left: 20px">
 <h1 th:text="${shop.getName()}"></h1>
 
-<form action="#" th:action="@{/shops/{id}/newProd(id = ${shop.getId()})}" th:object="${product}" method="post">
-    <label>Name</label><input type="text" th:field="*{name}"/><br/>
-    <label>Description</label><input type="text" th:field="*{description}"/><br/>
-    <label>Inventory</label><input type="number" th:field="*{inventory}"/><br/>
-    <label>imageurl</label><input type="text" th:field="*{imageUrl}"/><br/>
-    <input type="submit" value="Create new product"/>
-</form>
+<a class="btn btn-primary" th:href="'/shops/'+ ${shop.getId()} + '/products/new'">Create new Product</a>
+
 
 <h2>Product List</h2>
 <ul>
@@ -29,6 +26,6 @@
     </li>
 </ul>
 
-
+</main>
 </body>
 </html>

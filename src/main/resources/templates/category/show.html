@@ -2,17 +2,19 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
     <title>Category</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body>
 <div th:replace="common/navbar :: common-navbar" />
+<main style="margin-left: 20px">
 <h1 th:text="${category.getName()}"></h1>
 
-<h2>Shop List</h2>
+<h3>Shops:</h3>
 <ul>
     <li th:each="shop : ${category.linkedShops}" >
         <a th:text="${shop.getName()}"  th:href="'/shops/'+ ${shop.getId()}"></a>
     </li>
 </ul>
-
+</main>
 </body>
 </html>

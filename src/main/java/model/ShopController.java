@@ -24,18 +24,15 @@ public class ShopController {
     @GetMapping(value={"/", "/shops"})
     public String shopForm(Model model) {
         model.addAttribute("shops", repository.findAll());
+        model.addAttribute("carts", cartRepository.findAll());
+        return "shop/index";
+    }
+
+    @GetMapping("shops/new")
+    public String newShop(Model model) {
         model.addAttribute("shop", new Shop());
         model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("carts", cartRepository.findAll());
-        ArrayList<ShoppingCart> carts = cartRepository.findAll();
-        ShoppingCart cart = carts.get(0);
-        HashMap<String, Integer> cartItemName = new HashMap<String, Integer>();
-        for (Long key : cart.getCart().keySet())
-        {
-            cartItemName.put(Prepository.findById(key).orElse(new Product()).getName(), cart.getCart().get(key));
-        }
-        model.addAttribute("cartItemName", cartItemName);
-        return "shop/index";
+        return "shop/new";
     }
 
     @GetMapping("shops/{id}")
@@ -61,15 +58,4 @@ public class ShopController {
         return "redirect:/shops/" + shop.getId();
     }
 
-    @PostMapping("shops/{id}/newProd")
-    public String createProduct(@RequestParam(value = "description") String desc, @RequestParam(value = "name") String name,
-                                @RequestParam(value = "inventory") int inv, @RequestParam(value = "imageUrl") String imageUrl, @PathVariable("id") long id) {
-        Shop shop = repository.findById(id);
-        Product prod = new Product(name, desc, inv, shop.getId(), imageUrl);
-        shop.addProduct(prod);
-        repository.save(shop);
-        Prepository.save(prod);
-
-        return "redirect:/shops/" + shop.getId();
-    }
 }
