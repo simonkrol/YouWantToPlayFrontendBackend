@@ -13,6 +13,7 @@ public class ProductTest {
     public void setUp()
     {
         product = new Product("Name","This is the description", 20, "testPhoto".getBytes(), 12L);
+        product.setImageUrl("https://dpa730eaqha29.cloudfront.net/mltnews/wp-content/uploads/2011/03/Events-in-Seattle-Starbucks-Coffee-Company.jpg");
     }
 
     @AfterEach
@@ -45,6 +46,7 @@ public class ProductTest {
 
     @Test
     public void testImage(){
-        assertArrayEquals("testPhoto".getBytes(), product.getImage());
+        assertNotNull(product.getImageUrl());
     }
+
 }
