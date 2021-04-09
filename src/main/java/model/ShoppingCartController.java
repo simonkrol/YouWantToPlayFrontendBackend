@@ -18,18 +18,6 @@ public class ShoppingCartController {
     private ProductRepository prodRepository;
     @Autowired
     private ShoppingCartRepository cartRepository;
-// MOVED TO INDEX
-//    @GetMapping("/cart/{id}")
-//    public String showCart(@PathVariable("id") long id, Model model) {
-//        ShoppingCart cart = cartRepository.findById(id);
-//        System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
-//        for(Integer l: cart.getCart().values()){
-//            System.out.print("AAAA");
-//            System.out.print(l);
-//        }
-//        System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
-//        return "/cart/{id}";
-//    }
 
     @PostMapping("/shops/{id}/products/{pid}/addToCart")
     public String addProductToCart(@RequestParam(value = "amount") int amount,

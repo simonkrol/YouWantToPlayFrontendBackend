@@ -40,7 +40,7 @@ public class ShoppingCart {
         cart.put(prod.getId(), count);
     }
 
-    //Not in requirements. Not doing
+    //Not in requirements.
     public void remove(Product prod, int count){
 
     }
