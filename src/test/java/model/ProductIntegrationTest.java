@@ -36,7 +36,7 @@ public class ProductIntegrationTest {
     {
         List<Product> prods = new ArrayList<Product>();
         shop = new Shop("Amazon", prods);
-        product = new Product("Name","Description", 20, "testPhoto".getBytes(), shop.getId());
+        product = new Product("Name","Description", 20, shop.getId(), "https://dpa730eaqha29.cloudfront.net/mltnews/wp-content/uploads/2011/03/Events-in-Seattle-Starbucks-Coffee-Company.jpg");
         shop.addProduct(product);
         repository.save(shop);
         Prepository.save(product);

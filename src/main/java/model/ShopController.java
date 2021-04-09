@@ -54,9 +54,9 @@ public class ShopController {
 
     @PostMapping("shops/{id}/newProd")
     public String createProduct(@RequestParam(value = "description") String desc, @RequestParam(value = "name") String name,
-                                @RequestParam(value = "inventory") int inv, @PathVariable("id") long id) {
+                                @RequestParam(value = "inventory") int inv, @RequestParam(value = "imageUrl") String imageUrl, @PathVariable("id") long id) {
         Shop shop = repository.findById(id);
-        Product prod = new Product(name, desc, inv, null, shop.getId());
+        Product prod = new Product(name, desc, inv, shop.getId(), imageUrl);
         shop.addProduct(prod);
         repository.save(shop);
         Prepository.save(prod);

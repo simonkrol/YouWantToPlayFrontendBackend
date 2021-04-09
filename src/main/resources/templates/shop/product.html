@@ -4,7 +4,9 @@
     <title>Product</title>
 </head>
 <body>
+
 <tr>
+    <img th:src="${product.getImageUrl()}"></a>
     <h5> Name </h5>
     <td th:text="${product.getName()}" >Name</td><Br>
     <h5> Description </h5>
@@ -14,3 +16,4 @@
 </tr>
 </body>
 </html>
+
