@@ -17,7 +17,7 @@ public class ShoppingCartController {
     private ProductRepository prodRepository;
     @Autowired
     private ShoppingCartRepository cartRepository;
-
+// MOVED TO INDEX
 //    @GetMapping("/cart/{id}")
 //    public String showCart(@PathVariable("id") long id, Model model) {
 //        ShoppingCart cart = cartRepository.findById(id);
@@ -31,24 +31,27 @@ public class ShoppingCartController {
 //    }
 
     @PostMapping("/shops/{id}/products/{pid}/addToCart")
-    public String addProductToCart(@RequestParam(value = "amount") int amount, @PathVariable("id") long id,
-                                   @PathVariable("pid") long pid) {
+    public String addProductToCart(@RequestParam(value = "amount") int amount,  @PathVariable("cid") long cid,
+                                   @PathVariable("id") long id,
+                                   @PathVariable("pid") long pid){
         Product product = prodRepository.findById(pid);
         ShoppingCart cart = cartRepository.findById(id);
+        if (product.getInventory() < amount || amount <1) {
 
-        if (product.getInventory() < amount){
-            System.out.print("wowlowlwowlwowlwololol");
-
-            //return "error page";
+            return "shop/shopError";
         }
         cart.add(product, amount);
         cartRepository.save(cart);
-
-        System.out.print("\n\n\n\n\n");
-        System.out.print("Added to cart");
-        System.out.print("\n\n\n\n\n");
+        product.setInventory(product.getInventory()-amount);
+        prodRepository.save(product);
 
         return "redirect:/";
+    }
+
+    @GetMapping("/checkout{cid}")
+    public String checkout(@PathVariable("cid") long id){
+        ShoppingCart cart = cartRepository.findById(id);
+        return "shop/checkout";
     }
 
 

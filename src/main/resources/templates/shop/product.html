@@ -13,7 +13,7 @@
     <td th:text="${product.getInventory()}" >Inventory</td><Br>
 </tr>
 
-<form action="#" th:action="@{/shops/{id}/products/{pid}/addToCart(id = ${product.getShopId()}, pid = ${product.getId()})}" method="post">
+<form action="#" th:action="@{/shops/{id}/products/{pid}/addToCart/{cid}(id = ${product.getShopId()}, pid = ${product.getId()})}" method="post">
     <input type="number" th:name="amount"/>
     <input type="Submit" value="Add to Cart"/>
 </form>

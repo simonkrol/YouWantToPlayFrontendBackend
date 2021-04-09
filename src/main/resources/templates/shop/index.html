@@ -12,6 +12,7 @@
         <div th:each="item : ${cart.getCart()}">
             <span th:text="${item.key}"></span>
             <span th:text="${item.value}"></span>
+            <span th:text="${cart.getId()}"></span>
         </div>
 <!--        <a th:text="${cart.getId()}"></a>-->
     </div>
